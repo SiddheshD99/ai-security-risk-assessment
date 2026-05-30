@@ -276,3 +276,126 @@ admin privileges.
 ### NIST CSF Mapping
 - Protect (PR.AC) — Access Control
 - Detect (DE.CM) — Security Continuous Monitoring
+
+---
+
+## LLM08 — Excessive Agency
+
+### Description
+Excessive agency occurs when a ChatGPT-powered system is granted too much 
+autonomy to take actions in connected systems — sending emails, executing 
+code, modifying files — without sufficient human oversight or confirmation. 
+In enterprise environments this can lead to unintended or damaging actions 
+being executed at scale.
+
+### Attack Scenario
+An enterprise deploys an autonomous ChatGPT agent to manage IT helpdesk 
+tickets. The agent is granted permissions to create and delete user accounts, 
+reset passwords, and modify access controls. An attacker crafts a malicious 
+helpdesk ticket containing a prompt injection payload. The agent interprets 
+the payload as a legitimate instruction and creates a backdoor admin account 
+for the attacker — without any human review or approval.
+
+### Impact
+- Unauthorised actions executed on enterprise systems
+- Privilege escalation through AI-driven account creation
+- Data modification or deletion without human approval
+- Difficult to detect and audit — actions appear legitimate
+
+### Likelihood: Medium
+### Impact: High
+### Risk Rating: High
+
+### Controls
+- Implement human-in-the-loop approval for all high risk actions
+- Apply least privilege to all agent permissions
+- Define and enforce strict action boundaries for AI agents
+- Log and audit all autonomous actions taken by the model
+- Require explicit confirmation before irreversible actions
+
+### NIST CSF Mapping
+- Protect (PR.AC) — Access Control
+- Detect (DE.CM) — Security Continuous Monitoring
+
+---
+
+## LLM09 — Overreliance
+
+### Description
+Overreliance occurs when employees or systems place excessive trust in 
+ChatGPT outputs without verification — treating the model as infallible. 
+This is particularly dangerous in enterprise environments where AI outputs 
+influence legal, financial, or security decisions.
+
+### Attack Scenario
+A legal team at a Dublin corporation uses ChatGPT to draft compliance 
+documentation for a GDPR audit. The model confidently produces a document 
+citing fictitious GDPR articles and non-existent regulatory precedents — 
+a phenomenon known as hallucination. The team submits the document to 
+regulators without review. The inaccuracies are discovered during the audit, 
+resulting in compliance failure and regulatory scrutiny.
+
+### Impact
+- Compliance failures from acting on hallucinated regulatory guidance
+- Financial losses from AI-influenced business decisions based on false data
+- Legal liability from contracts or documents containing AI errors
+- Reputational damage from publicly visible AI-driven mistakes
+
+### Likelihood: High
+### Impact: High
+### Risk Rating: High
+
+### Controls
+- Establish mandatory human review for all AI generated outputs used in decisions
+- Train employees to treat ChatGPT as a tool not an authority
+- Implement acceptable use policies defining where AI output requires verification
+- Document AI usage in decision making processes for audit purposes
+- Regular awareness training on AI hallucination risks
+
+### NIST CSF Mapping
+- Protect (PR.AT) — Awareness and Training
+- Identify (ID.GV) — Governance
+
+---
+
+## LLM10 — Model Theft
+
+### Description
+Model theft occurs when an attacker reconstructs or extracts a proprietary 
+fine-tuned version of ChatGPT through repeated querying, exposing the 
+intellectual property embedded in customised enterprise models and 
+potentially the sensitive data used to fine-tune them.
+
+### Attack Scenario
+A competitor identifies that a financial services firm has fine-tuned 
+ChatGPT on proprietary trading strategies and market analysis frameworks. 
+The attacker systematically queries the firm's customer-facing AI assistant 
+over several weeks using carefully crafted prompts designed to extract 
+model behaviour patterns. They reconstruct a functional approximation of 
+the fine-tuned model, effectively stealing months of proprietary AI 
+development and the strategic insights embedded within it.
+
+### Impact
+- Loss of competitive advantage from stolen proprietary model
+- Exposure of sensitive training data used in fine-tuning
+- Intellectual property theft with significant financial implications
+- Reputational damage if stolen model is used maliciously
+
+### Likelihood: Low
+### Impact: Critical
+### Risk Rating: High
+
+### Controls
+- Implement strict API rate limiting to prevent systematic extraction
+- Monitor query patterns for signs of model extraction attempts
+- Watermark model outputs to detect unauthorised reproduction
+- Limit exposure of fine-tuned models to authenticated users only
+- Conduct regular threat modelling of AI asset attack surfaces
+
+### NIST CSF Mapping
+- Protect (PR.IP) — Information Protection Processes
+- Detect (DE.CM) — Security Continuous Monitoring
+
+---
+*Assessment conducted by Siddhesh Dahiphale — MSc Cybersecurity, National College of Ireland*  
+*Frameworks: OWASP LLM Top 10 (2025) | NIST CSF 2.0 | EU AI Act (2024)*
