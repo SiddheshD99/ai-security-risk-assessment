@@ -397,5 +397,3 @@ development and the strategic insights embedded within it.
 - Detect (DE.CM) — Security Continuous Monitoring
 
 ---
-*Assessment conducted by Siddhesh Dahiphale — MSc Cybersecurity, National College of Ireland*  
-*Frameworks: OWASP LLM Top 10 (2025) | NIST CSF 2.0 | EU AI Act (2024)*
