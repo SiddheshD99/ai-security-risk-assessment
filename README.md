@@ -47,10 +47,13 @@ This assessment identifies real-world threat scenarios, evaluates risk exposure,
 | LLM10 | Model Theft | Low | Critical | High |
 
 ## Key Findings
-Detailed findings documented in /docs/executive-summary.md
+Two critical risks identified — Prompt Injection (LLM01) and Sensitive Information 
+Disclosure (LLM06) require immediate remediation. All 10 OWASP LLM risks present 
+in a typical enterprise ChatGPT deployment. Full findings in /docs/executive-summary.md
 
 ## Recommendations
-Full recommendations documented in /docs/control-recommendations.md
+Immediate action required on input validation, session isolation, and DLP controls. 
+Full recommendations with 90-day roadmap in /docs/control-recommendations.md
 
 ## EU AI Act Alignment
 ChatGPT deployed in enterprise contexts may qualify as a high-risk AI system under the EU AI Act depending on use case. This assessment considers transparency requirements, risk management systems, human oversight mechanisms, and data governance obligations applicable to organisations operating within the EU.
